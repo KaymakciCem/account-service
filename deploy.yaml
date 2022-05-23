@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-service
+  labels:
+    app: account-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: account-service
+      labels:
+        app: account-service
+    spec:
+      containers:
+        - name: account-service
+          image: goceefake/account-service
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: local-microservice
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: account-service
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankapp-account-service
+spec:
+  selector:
+    app: account-service
+  ports:
+    - port: 8081
+      nodePort: 30030
+  type: NodePort
