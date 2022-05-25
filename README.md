@@ -1,4 +1,7 @@
 # account-service
 
-Spring Boot and ReactJS Application
-This project provides to create account for existing customers.
+Spring Boot Application
+This project provides to open an account for existing customers.
+
+Requirements
+  The API will expose an endpoint which accepts the user information (customerID, initialCredit).
