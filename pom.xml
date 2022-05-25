@@ -94,7 +94,7 @@
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>goceefake/${project.artifactId}</name>
+                            <name>${project.artifactId}</name>
                             <build>
                                 <dockerFileDir>${project.basedir}/docker/</dockerFileDir>
                                 <assembly>
